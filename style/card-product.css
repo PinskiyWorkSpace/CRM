@@ -1,0 +1,372 @@
+.overlay__card-product {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: block;
+}
+.title__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-product {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 792px;
+  padding: 32px 106px;
+  background: #F2F0F9;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+}
+
+.fieldset {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 28px;
+  border: none;
+  margin-bottom: 28px;
+  color: #6E6893;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px 24px;
+  grid-template-areas:
+    "name description"
+    "category description"
+    "units count"
+    "discount prise"
+    ". image";
+}
+
+.name {
+  grid-area: name;
+}
+
+.category {
+  grid-area: category;
+}
+
+.units {
+  grid-area: units;
+}
+
+.description {
+  grid-area: description;
+}
+
+.discount {
+  grid-area: discount;
+}
+
+.count {
+  grid-area: count;
+}
+
+.prise {
+  grid-area: prise;
+}
+
+.image {
+  grid-area: image;
+}
+
+.form__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6E6893;
+}
+.title__wrapper--id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title--id {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  color: #C5C5C5;
+}
+.title__btn--id {
+  border: none;
+}
+hr {
+  margin-bottom: 21px;
+}
+
+.form__input {
+  width: 250px;
+  height: 40px;
+  background: #F4F2FF;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  margin-top: 5px;
+
+}
+
+.form__textarea {
+  width: 250px;
+  height: 120px;
+  background: #F4F2FF;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  resize: none;
+  margin-top: 5px;
+}
+
+.form__input_disabled {
+  width: 200px;
+  margin-left: 50px;
+  background: #EEEEEE;
+}
+
+.checkbox__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.checkbox__input:before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -65px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #F4F2FF;
+  border-radius: 8px;
+}
+
+.checkbox__input:after {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: -55px;
+  width: 20px;
+  height: 10px;
+  border: 3px solid black;
+  border-top: none;
+  border-right: none;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+.checkbox__input:checked:after {
+  opacity: 1
+}
+
+.checkbox:checked+.form__input_disabled {
+  background-color: #F4F2FF;
+}
+
+.form__btn {
+  display: block;
+  background: #6D5BD0;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 auto;
+  margin-right: 28px;
+  padding: 10px 25px;
+}
+
+.close {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.close:before,
+.close:after {
+  content: ' ';
+  position: absolute;
+  left: 8px;
+  top: -9px;
+  height: 33px;
+  width: 3px;
+  background-color: #6E6893;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.form__image-upload {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1
+}
+
+.image {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #6D5BD0;
+  border-radius: 6px;
+  padding: 11px 20px;
+}
+
+.image:hover,
+.form__btn:hover {
+  background: #533dd0;
+}
+
+.image:active,
+.form__btn:active {
+  box-sizing: border-box;
+  background: #533dd0;
+  transform: scale(0.98);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.total-cost__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6E6893;
+}
+
+.total-cost__price {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #6D5BD0;
+}
+
+@media (max-width: 806px) {
+  .card-product {
+    padding: 30px 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .fieldset {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "category"
+      "units"
+      "description"
+      "discount"
+      "count"
+      "prise"
+      "image";
+  }
+
+  label {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .checkbox__input:before {
+    top: 20px;
+    left: -122px;
+  }
+
+  .checkbox__input:after {
+    top: 30px;
+    left: -110px;
+  }
+
+  .form__btn {
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 460px) {
+  .card-product {
+    padding: 30px 20px;
+  }
+
+  .form__title {
+    font-size: 20px;
+  }
+
+  .form__input {
+    width: 200px;
+  }
+
+  .form__textarea {
+    width: 200px;
+  }
+
+  .form__input_disabled {
+    width: 150px;
+  }
+
+  .checkbox__input:before {
+    top: 20px;
+    left: -100px;
+  }
+
+  .checkbox__input:after {
+    top: 30px;
+    left: -90px;
+  }
+
+  .close:before,
+  .close:after {
+    content: ' ';
+    position: absolute;
+    left: 25px;
+    top: -5px;
+    height: 27px;
+    width: 3px;
+    background-color: #6E6893;
+  }
+
+  .image {
+    font-size: 12px;
+    padding: 11px 10px;
+  }
+
+  .total-cost__text {
+    font-size: 12px;
+  }
+
+  .total-cost__price {
+    font-size: 16px;
+  }
+}
