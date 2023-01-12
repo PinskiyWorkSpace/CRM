@@ -93,7 +93,6 @@ const createRow = (obj) => {
   return tr;
 };
 
-
 const renderGoods = (arr) => {
   arr.map((el) => {
     tbody.append(createRow(el));
@@ -101,3 +100,32 @@ const renderGoods = (arr) => {
 };
 
 renderGoods(product);
+
+// * Выполнение дз
+
+const tableBtn = document.querySelector('.table__btn');
+const table = document.querySelector('.table-product');
+const overlayCardProduct = document.querySelector('.overlay__card-product');
+const close = document.querySelector('.close');
+const cardProduct = document.querySelector('.card-product');
+
+tableBtn.addEventListener('click', () => {
+  overlayCardProduct.style.display = 'flex';
+  table.style.display = 'none';
+});
+
+close.addEventListener('click', () => {
+  overlayCardProduct.style.display = 'none';
+  table.style.display = 'flex';
+});
+
+overlayCardProduct.addEventListener('click', () => {
+  overlayCardProduct.style.display = 'none';
+  table.style.display = 'flex';
+});
+
+cardProduct.addEventListener('click', event => {
+  event.stopPropagation();
+});
+
+// * конец дз
