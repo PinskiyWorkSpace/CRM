@@ -7,10 +7,17 @@ const form = document.querySelector('.form');
 const checkbox = document.querySelector('.checkbox__input');
 const inputCheckbox = document.querySelector('.form__input_disabled');
 const totalPrice = document.querySelector('.total-cost__text');
-
 const tbody = document.querySelector('tbody');
+const tableBtn = document.querySelector('.table__btn');
+const table = document.querySelector('.table-product');
+const overlayCardProduct = document.querySelector('.overlay__card-product');
+const close = document.querySelector('.close');
+const cardProduct = document.querySelector('.card-product');
 
-const product = [{
+
+
+let product = [
+  {
     "id": 253842678,
     "title": "Смартфон Xiaomi 11T 8/128GB",
     "price": 27000,
@@ -68,16 +75,22 @@ const product = [{
   }
 ];
 
-const createRow = (obj) => {
+const createRow = ({id, title, category, units, count, price}) => {
+
   const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td>${obj.id}</td>
-    <td>${obj.title}</td>
-    <td>${obj.category}</td>
-    <td>${obj.units}</td>
-    <td>${obj.count}</td>
-    <td>$${obj.price}</td>
-    <td>$${obj.price * obj.count}</td>
+
+  tr.classList.add('tableRow');
+
+  tr.dataset.id = id;
+
+  tr.insertAdjacentHTML('beforeend', `
+    <td>${id}</td>
+    <td>${title}</td>
+    <td>${category}</td>
+    <td>${units}</td>
+    <td>${count}</td>
+    <td>$${price}</td>
+    <td>$${price * count}</td>
     <td>
       <button  class="btn_product" type="submit">
         <img src="./image/img-product.svg" alt="Изображение товара">
@@ -85,14 +98,14 @@ const createRow = (obj) => {
       <button class="btn_product" type="submit">
         <img src="./image/add-product.svg" alt="Добавить товар">
       </button>
-      <button class="btn_product" type="submit">
+      <button class="btn_product delite_product" type="submit">
         <img src="./image/delite-product.svg" alt="Удалить товар">
       </button>
     </td>
-  `;
+  `);
+
   return tr;
 };
-
 const renderGoods = (arr) => {
   arr.map((el) => {
     tbody.append(createRow(el));
@@ -101,31 +114,37 @@ const renderGoods = (arr) => {
 
 renderGoods(product);
 
-// * Выполнение дз
-
-const tableBtn = document.querySelector('.table__btn');
-const table = document.querySelector('.table-product');
-const overlayCardProduct = document.querySelector('.overlay__card-product');
-const close = document.querySelector('.close');
-const cardProduct = document.querySelector('.card-product');
-
 tableBtn.addEventListener('click', () => {
   overlayCardProduct.style.display = 'flex';
   table.style.display = 'none';
 });
 
-close.addEventListener('click', () => {
-  overlayCardProduct.style.display = 'none';
-  table.style.display = 'flex';
+overlayCardProduct.addEventListener('click', e => {
+  const target = e.target;
+  if (target ===  close ||
+  target === overlayCardProduct) {
+    overlayCardProduct.style.display = 'none';
+    table.style.display = 'flex';
+  };
 });
 
-overlayCardProduct.addEventListener('click', () => {
-  overlayCardProduct.style.display = 'none';
-  table.style.display = 'flex';
-});
+tbody.addEventListener('click', e => {
+    const target = e.target;
 
-cardProduct.addEventListener('click', event => {
-  event.stopPropagation();
-});
+    if (target.closest('.delite_product')) {
+      const idProduct = target.closest('.tableRow');
+      idProduct.remove();
 
-// * конец дз
+      product.forEach((elem, index) => {
+// ? Вопрос: Привести к одному типу и использовать строгое неравенсктво
+// ? или оставить так? Или может быть есть более элегантный метод?
+        if (elem.id == idProduct.dataset.id) {
+          product.splice(index, 1);
+        };
+      });
+
+      console.log(product);
+    }
+  });
+
+
