@@ -29,8 +29,8 @@
     <div class="card-product">
       <div class="title__wrapper">
         <h1 class="form__title">Добавить товар</h1>
-        <div class="title__wrapper--id">
-          <div class="title--id">id: 201910241</div>
+        <div class="title__wrapper--id">id:
+          <div class="title--id">201910241</div>
         <button class="title__btn--id">
           <img src="/image/add-product.svg" alt="иконка кнопки">
         </button>
@@ -40,11 +40,11 @@
 
       <button class="close"></button>
 
-      <form class="form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+      <form class="form" >
         <fieldset class="fieldset">
 
           <label class="name">Наименование
-            <input class="form__input" type="text" name="name">
+            <input class="form__input" type="text" name="title">
           </label>
 
           <label class="category">Категория
@@ -56,8 +56,8 @@
           </label>
 
           <label class="discount">Дисконт
-            <input class="checkbox checkbox__input" type="checkbox" name="discount">
-            <input class="form__input form__input_disabled" type="text">
+            <input class="checkbox checkbox__input" type="checkbox" >
+            <input class="form__input form__input_disabled" type="text" name="discont" disabled="true">
           </label>
 
           <label class="description">Описание
@@ -69,7 +69,7 @@
           </label>
 
           <label class="prise">Цена
-            <input class="form__input " type="number" name="prise">
+            <input class="form__input " type="number" name="price">
           </label>
 
           <label class="image">Добавить изображение
@@ -79,7 +79,7 @@
 
         <div class="wrapper">
           <p class="total-cost__text" >Итоговая стоимость:
-            <span class="total-cost__price">$ 900.00</span>
+            <span class="total-cost__price">$ 0</span>
           </p>
           <button class="form__btn" type="submit">Добавить товар</button>
         </div>
@@ -94,7 +94,7 @@
       <div class="table-product__header">
         <h1 class="form__title">CMS</h1>
         <p class="total-cost__text">Итоговая стоимость:
-          <span class="total-cost__price">$ 900.00</span>
+          <span class="total-table__price">$ 900.00</span>
         </p>
       </div>
       <hr>
@@ -122,206 +122,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/bad_img-product.svg" alt="Изображение товара испорчено">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>937295527</td>
-              <td>Настольная игра “На 4-х ногах”</td>
-              <td>Настольные игры</td>
-              <td>шт</td>
-              <td>12</td>
-              <td>$14</td>
-              <td>$168</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
-            <tr class="tableRow">
-              <td>246016548</td>
-              <td>Навигационная система Soundmax</td>
-              <td>Техника для дома</td>
-              <td>шт</td>
-              <td>5</td>
-              <td>$100</td>
-              <td>$500</td>
-              <td>
-                <button  class="btn_product" type="submit">
-                  <img src="./image/img-product.svg" alt="Изображение товара">
-                </button>
-                <button class="btn_product" type="submit">
-                  <img src="./image/add-product.svg" alt="Добавить товар">
-                </button>
-                <button class="btn_product delite_product" type="submit">
-                  <img src="./image/delite-product.svg" alt="Удалить товар">
-                </button>
-              </td>
-            </tr>
+
           </tbody>
           <tfoot class="tfoot">
             <tr>

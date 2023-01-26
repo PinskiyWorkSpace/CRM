@@ -6,15 +6,14 @@ const btnId = document.querySelector('.title__btn--id');
 const form = document.querySelector('.form');
 const checkbox = document.querySelector('.checkbox__input');
 const inputCheckbox = document.querySelector('.form__input_disabled');
-const totalPrice = document.querySelector('.total-cost__text');
+const totalPrice = document.querySelector('.total-table__price');
+const totalPriceModal = document.querySelector('.total-cost__price');
 const tbody = document.querySelector('tbody');
 const tableBtn = document.querySelector('.table__btn');
 const table = document.querySelector('.table-product');
 const overlayCardProduct = document.querySelector('.overlay__card-product');
 const close = document.querySelector('.close');
 const cardProduct = document.querySelector('.card-product');
-
-
 
 let product = [
   {
@@ -75,6 +74,22 @@ let product = [
   }
 ];
 
+const closeModal = () => {
+  overlayCardProduct.style.display = 'none';
+  table.style.display = 'flex';
+};
+
+const totalPriceTable = () => {
+
+  let num = 0;
+
+  product.forEach(obj => {
+    num += (obj.price * obj.count);
+  });
+
+  totalPrice.textContent = `$${num}`;
+};
+
 const createRow = ({id, title, category, units, count, price}) => {
 
   const tr = document.createElement('tr');
@@ -106,10 +121,12 @@ const createRow = ({id, title, category, units, count, price}) => {
 
   return tr;
 };
+
 const renderGoods = (arr) => {
   arr.map((el) => {
     tbody.append(createRow(el));
   });
+  totalPriceTable();
 };
 
 renderGoods(product);
@@ -123,8 +140,7 @@ overlayCardProduct.addEventListener('click', e => {
   const target = e.target;
   if (target ===  close ||
   target === overlayCardProduct) {
-    overlayCardProduct.style.display = 'none';
-    table.style.display = 'flex';
+    closeModal();
   };
 });
 
@@ -136,15 +152,48 @@ tbody.addEventListener('click', e => {
       idProduct.remove();
 
       product.forEach((elem, index) => {
-// ? Вопрос: Привести к одному типу и использовать строгое неравенсктво
-// ? или оставить так? Или может быть есть более элегантный метод?
         if (elem.id == idProduct.dataset.id) {
           product.splice(index, 1);
         };
       });
-
       console.log(product);
-    }
+    };
+    totalPriceTable();
   });
 
+checkbox.addEventListener('change', (e) => {
 
+      if (e.target.checked) {
+        inputCheckbox.removeAttribute('disabled');
+      } else {
+        inputCheckbox.value = '';
+        inputCheckbox.setAttribute('disabled', 'true' );
+      }
+  });
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const newProduct = Object.fromEntries(formData);
+
+  newProduct.id = cardId.textContent;
+
+  product.push(newProduct);
+
+  tbody.append(createRow(newProduct));
+
+  form.reset();
+  closeModal();
+
+  totalPriceTable();
+  console.log(newProduct);
+});
+
+form.addEventListener('change', () => {
+  let num = 0;
+
+  num = form.price.value * form.count.value;
+
+  totalPriceModal.textContent = `$${num}`;
+});
