@@ -1,6 +1,5 @@
 
 
-
 export const createRow = ({id, title, category, units, count, price}) => {
 
   const tr = document.createElement('tr');
