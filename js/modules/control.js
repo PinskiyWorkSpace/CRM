@@ -105,6 +105,7 @@ tbody.addEventListener('click', e => {
 
     if (target.closest('.delite_product')) {
       const idProduct = target.closest('.tableRow');
+      console.log('idProduct: ', idProduct.dataset.pic);
       idProduct.remove();
 
       product.forEach((elem, index) => {
@@ -153,3 +154,22 @@ form.addEventListener('change', () => {
 
   totalPriceModal.textContent = `$${num}`;
 });
+
+const getImage = () => {
+  tbody.addEventListener('click', e => {
+    const target = e.target;
+
+    if (target.closest('.btn_image')) {
+      const productPic = target.closest('.tableRow');
+      const image = productPic.dataset.pic;
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      const left = (screenWidth / 2) - 300;
+      const top = (screenHeight / 2) - 300;
+
+      open(image, 'imege', `width=600, height=600,left=${left}, top=${top}`);
+    }
+  });
+};
+
+getImage();

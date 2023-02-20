@@ -7,6 +7,7 @@ export const createRow = ({id, title, category, units, count, price}) => {
   tr.classList.add('tableRow');
 
   tr.dataset.id = id;
+  tr.dataset.pic = "../../image/image_test.jpg";
 
   tr.insertAdjacentHTML('beforeend', `
     <td>${id}</td>
@@ -17,7 +18,7 @@ export const createRow = ({id, title, category, units, count, price}) => {
     <td>$${price}</td>
     <td>$${price * count}</td>
     <td>
-      <button  class="btn_product" type="submit">
+      <button  class="btn_product btn_image" type="submit">
         <img src="./image/img-product.svg" alt="Изображение товара">
       </button>
       <button class="btn_product" type="submit">
