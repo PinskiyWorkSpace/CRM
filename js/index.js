@@ -1,9 +1,16 @@
 import {renderGoods} from './modules/render.js';
-import {product} from './modules/control.js';
+import {URL, fetchRequest} from './modules/request.js';
+import { totalPriceTable } from './modules/control.js';
 
-
-const init = () => renderGoods(product);
-
+const init = () => fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
+  method: 'GET',
+  callBack: renderGoods,
+  }
+);
 
 init();
+
+
+
+
 

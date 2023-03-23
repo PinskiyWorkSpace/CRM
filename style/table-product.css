@@ -56,6 +56,10 @@
   color: #6E6893;
 }
 
+.btn__groop {
+  width: 100px;
+}
+
 .table__btn {
   font-weight: 600;
   font-size: 16px;
@@ -138,5 +142,5 @@ select {
 }
 
 .delite_product {
-  
+
 }

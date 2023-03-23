@@ -17,7 +17,7 @@ export const createRow = ({id, title, category, units, count, price}) => {
     <td>${count}</td>
     <td>$${price}</td>
     <td>$${price * count}</td>
-    <td>
+    <td  class="btn__groop">
       <button  class="btn_product btn_image" type="submit">
         <img src="./image/img-product.svg" alt="Изображение товара">
       </button>
