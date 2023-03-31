@@ -21,13 +21,13 @@ export const fetchRequest = async (url, {
     if (response.ok) {
       const data = await response.json();
       if (callBack) callBack(null, data);
-      return;
+      return data;
     }
 
     throw new Error(` Ошибка ${response.status}: ${response.statusText}`);
 
   } catch (err) {
-    callBack(err);
+    return callBack(err);
   }
 };
 

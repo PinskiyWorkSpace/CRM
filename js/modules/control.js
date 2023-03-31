@@ -1,21 +1,15 @@
-import {createRow} from './createElements.js';
 import {URL, fetchRequest} from './request.js';
+import {createModal} from './modal.js';
 
 const totalPrice = document.querySelector('.total-table__price');
-const overlayCardProduct = document.querySelector('.overlay__card-product');
+
 const table = document.querySelector('.table-product');
-const form = document.querySelector('.form');
-const checkbox = document.querySelector('.checkbox__input');
-const inputCheckbox = document.querySelector('.form__input_disabled');
-const totalPriceModal = document.querySelector('.total-cost__price');
 const tableBtn = document.querySelector('.table__btn');
-const close = document.querySelector('.close');
 const tbody = document.querySelector('tbody');
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal__close');
 
 
-const closeModal = () => {
+export const closeModal = () => {
+  const overlayCardProduct = document.querySelector('.overlay__card-product');
   overlayCardProduct.style.display = 'none';
   table.style.display = 'flex';
 };
@@ -31,19 +25,6 @@ export const totalPriceTable = (err, data) => {
   totalPrice.textContent = `$${num}`;
 };
 
-tableBtn.addEventListener('click', () => {
-  overlayCardProduct.style.display = 'flex';
-  table.style.display = 'none';
-});
-
-overlayCardProduct.addEventListener('click', e => {
-  const target = e.target;
-  if (target ===  close ||
-  target === overlayCardProduct) {
-    closeModal();
-  }
-});
-
 tbody.addEventListener('click',async e => {
     const target = e.target;
 
@@ -56,64 +37,24 @@ tbody.addEventListener('click',async e => {
       });
     }
 
-    await fetchRequest(URL, {
-      method: 'GET',
-      callBack: totalPriceTable,
-    });
-  });
+    if (target.closest('.edit_product')) {
+      const idProduct = target.closest('.tableRow');
+      table.style.display = 'none';
 
-  checkbox.addEventListener('change', (e) => {
+      await fetchRequest(`${URL}${idProduct.dataset.id}`, {
+        method: 'GET',
+        callBack: createModal,
+      });
 
-      if (e.target.checked) {
-        inputCheckbox.removeAttribute('disabled');
-      } else {
-        inputCheckbox.value = '';
-        inputCheckbox.setAttribute('disabled', 'true' );
-      }
-  });
 
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
+    }
 
-    const formData = new FormData(e.target);
-    const newProduct = Object.fromEntries(formData);
-
-    await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
-      method: 'POST',
-      body: newProduct,
-      callBack(err, data) {
-        if (err) {
-          modal.style.display = 'block';
-          form.reset();
-
-          modal.addEventListener('click', (e) => {
-            if (e.target === modalClose) {
-              modal.style.display = 'none';
-            }
-          });
-
-          return;
-        }
-
-        tbody.append(createRow(data));
-        form.reset();
-        closeModal();
-      },
-    });
 
     await fetchRequest(URL, {
       method: 'GET',
       callBack: totalPriceTable,
     });
   });
-
-form.addEventListener('change', () => {
-  let num = 0;
-
-  num = form.price.value * form.count.value;
-
-  totalPriceModal.textContent = `$${num}`;
-});
 
 const getImage = () => {
   tbody.addEventListener('click', e => {
@@ -133,3 +74,11 @@ const getImage = () => {
 };
 
 getImage();
+
+tableBtn.addEventListener('click', () => {
+  table.style.display = 'none';
+  createModal();
+});
+
+
+

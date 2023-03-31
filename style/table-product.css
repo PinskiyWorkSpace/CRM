@@ -141,6 +141,25 @@ select {
   border: none;
 }
 
-.delite_product {
+.form__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6E6893;
+}
 
+.total-cost__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6E6893;
+}
+
+.total-table__price {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #6D5BD0;
 }
