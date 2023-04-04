@@ -247,6 +247,17 @@ hr {
   align-items: center;
 }
 
+.wrapper__preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.preview {
+  width: 200px;
+  display: block;
+}
 
 
 @media (max-width: 806px) {

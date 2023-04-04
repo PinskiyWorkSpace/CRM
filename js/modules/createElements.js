@@ -1,13 +1,13 @@
 
 
-export const createRow = ({id, title, category, units, count, price}) => {
+export const createRow = ({id, title, category, image, units, count, price}) => {
 
   const tr = document.createElement('tr');
 
   tr.classList.add('tableRow');
 
   tr.dataset.id = id;
-  tr.dataset.pic = "../../image/image_test.jpg";
+  tr.dataset.pic = `${'https://vast-boom-utensil.glitch.me/'}${image}`;
 
   tr.insertAdjacentHTML('beforeend', `
     <td>${id}</td>

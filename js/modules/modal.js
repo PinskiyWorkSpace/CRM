@@ -71,11 +71,15 @@ export const createModal = async (err, data) => {
             </label>
           </fieldset>
 
+          <div class="wrapper__preview">
+            <img class="preview" src="${'https://vast-boom-utensil.glitch.me/'}${data.image}">
+          </div>
+
           <div class="wrapper">
             <p class="total-cost__text" >Итоговая стоимость:
               <span class="total-cost__price">$ 0</span>
             </p>
-            <button class="form__btn" type="submit">Добавить товар</button>
+            <button class="form__btn" type="submit">Изменить товар</button>
           </div>
     `;
 
@@ -138,9 +142,14 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="image">Добавить изображение
-              <input class="form__image-upload" type="file" name="image">
+              <input class="form__image-upload" type="file" name="image" id="image" accept="image/*">
             </label>
+
           </fieldset>
+
+          <div class="wrapper__preview">
+            <img class="preview">
+          </div>
 
           <div class="wrapper">
             <p class="total-cost__text" >Итоговая стоимость:

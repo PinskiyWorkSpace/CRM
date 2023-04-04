@@ -6,6 +6,8 @@ const totalPrice = document.querySelector('.total-table__price');
 const table = document.querySelector('.table-product');
 const tableBtn = document.querySelector('.table__btn');
 const tbody = document.querySelector('tbody');
+const preview = document.querySelector('.preview');
+
 
 
 export const closeModal = () => {
@@ -45,10 +47,7 @@ tbody.addEventListener('click',async e => {
         method: 'GET',
         callBack: createModal,
       });
-
-
     }
-
 
     await fetchRequest(URL, {
       method: 'GET',
@@ -68,7 +67,7 @@ const getImage = () => {
       const left = (screenWidth / 2) - 300;
       const top = (screenHeight / 2) - 300;
 
-      open(image, 'imege', `width=600, height=600,left=${left}, top=${top}`);
+      open(image, 'image', `width=600, height=600,left=${left}, top=${top}`);
     }
   });
 };
