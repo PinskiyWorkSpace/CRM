@@ -141,6 +141,11 @@ export const createModal = async (err, data) => {
               <input class="form__input " type="number" name="price" required>
             </label>
 
+            <div class="warning">
+              Изображение не должно
+              превышать размер 1 Мб
+            </div>
+
             <label class="image">Добавить изображение
               <input class="form__image-upload" type="file" name="image" id="image" accept="image/*">
             </label>

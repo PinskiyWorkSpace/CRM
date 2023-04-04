@@ -17,6 +17,7 @@ export const modalControl = () => {
   const close = document.querySelector('.close');
   const preview = document.querySelector('.preview');
   const file = document.querySelector('.form__image-upload');
+  const warning = document.querySelector('.warning');
 
   const toBase64 = file => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -97,9 +98,14 @@ export const modalControl = () => {
 
   file.addEventListener('change', () => {
     if (file.files.length > 0) {
-      const src = URL.createObjectURL(file.files[0]);
-      preview.style.display = 'block';
-      preview.src = src;
+      if (file.files[0].size < 1e6) {
+        console.log('1e6: ', 1e6);
+        console.log('file.files[0]: ', file.files[0]);
+        const src = URL.createObjectURL(file.files[0]);
+        preview.src = src;
+      } else {
+        warning.style.display = 'block';
+      }
     }
   });
 };

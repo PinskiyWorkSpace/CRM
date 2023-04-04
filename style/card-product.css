@@ -259,6 +259,19 @@ hr {
   display: block;
 }
 
+.warning {
+  display: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D80101;
+}
+
 
 @media (max-width: 806px) {
   .card-product {
