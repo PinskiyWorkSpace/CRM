@@ -55,14 +55,14 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="description">Описание
-              <textarea class="form__textarea" name="description" cols="30" rows="3"  required>${data.description}</textarea>
+              <textarea class="form__textarea" name="description" cols="30" rows="3"  required>${data.description} minlength="80"</textarea>
             </label>
 
             <label class="count">Колличество
               <input class=" form__input" type="number" name="count" value="${data.count}" required>
             </label>
 
-            <label class="prise">Цена
+            <label class="price">Цена
               <input class="form__input " type="number" name="price" value="${data.price}" required>
             </label>
 
@@ -130,14 +130,14 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="description">Описание
-              <textarea class="form__textarea" name="description" cols="30" rows="3" required></textarea>
+              <textarea class="form__textarea" name="description" cols="30" rows="3" required minlength="80"></textarea>
             </label>
 
             <label class="count">Колличество
               <input class=" form__input" type="number" name="count" required>
             </label>
 
-            <label class="prise">Цена
+            <label class="price">Цена
               <input class="form__input " type="number" name="price" required>
             </label>
 

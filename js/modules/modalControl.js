@@ -108,4 +108,18 @@ export const modalControl = () => {
       }
     }
   });
+
+  form.addEventListener('input', ({target}) => {
+    if (target === form.title || target === form.category || target === form.description) {
+      target.value = target.value.replace(/[^а-яё-]/i, '');
+    };
+
+    if (target === form.units ) {
+      target.value = target.value.replace(/[^а-яё]/i, '');
+    };
+
+    if (target === form.count || target === form.discont || target === form.price ) {
+      target.value = target.value.replace(/[^0-9]/i, '');
+    };
+  });
 };

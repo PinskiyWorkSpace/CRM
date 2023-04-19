@@ -6,9 +6,6 @@ const totalPrice = document.querySelector('.total-table__price');
 const table = document.querySelector('.table-product');
 const tableBtn = document.querySelector('.table__btn');
 const tbody = document.querySelector('tbody');
-const preview = document.querySelector('.preview');
-
-
 
 export const closeModal = () => {
   const overlayCardProduct = document.querySelector('.overlay__card-product');

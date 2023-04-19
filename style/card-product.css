@@ -42,7 +42,7 @@
     "name description"
     "category description"
     "units count"
-    "discount prise"
+    "discount price"
     ". image";
 }
 
@@ -70,8 +70,8 @@
   grid-area: count;
 }
 
-.prise {
-  grid-area: prise;
+.price {
+  grid-area: price;
 }
 
 .image {
@@ -289,7 +289,7 @@ hr {
       "description"
       "discount"
       "count"
-      "prise"
+      "price"
       "image";
   }
 
