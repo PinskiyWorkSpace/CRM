@@ -9,7 +9,9 @@ const tableBtn = document.querySelector('.table__btn');
 const tbody = document.querySelector('tbody');
 const search = document.querySelector('.search');
 
-search.addEventListener('input', async () => {
+
+
+const searchInput = async () => {
   const data = await fetchRequest(URL, {
     method: 'GET',
   });
@@ -22,7 +24,18 @@ search.addEventListener('input', async () => {
       tbody.rows[index].style.display = 'none';
     }
   });
-});
+};
+
+const debounce = (callback, delay) => {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(callback, delay);
+  };
+};
+
+search.addEventListener('input', debounce(searchInput, 300));
+
 
 export const closeModal = () => {
   const overlayCardProduct = document.querySelector('.overlay__card-product');
