@@ -1,11 +1,28 @@
 import {URL, fetchRequest} from './request.js';
 import {createModal} from './modal.js';
+import {createRow} from './createElements.js'
 
 const totalPrice = document.querySelector('.total-table__price');
 
 const table = document.querySelector('.table-product');
 const tableBtn = document.querySelector('.table__btn');
 const tbody = document.querySelector('tbody');
+const search = document.querySelector('.search');
+
+search.addEventListener('input', async () => {
+  const data = await fetchRequest(URL, {
+    method: 'GET',
+  });
+  data.forEach((el, index) => {
+    const resultTitle = el.title.toLowerCase().includes(search.value.toLowerCase());
+    const resultСategory = el.category.toLowerCase().includes(search.value.toLowerCase());
+    if(resultTitle || resultСategory) {
+      tbody.rows[index].style.display = 'table-row';
+    }else{
+      tbody.rows[index].style.display = 'none';
+    }
+  });
+});
 
 export const closeModal = () => {
   const overlayCardProduct = document.querySelector('.overlay__card-product');
@@ -24,7 +41,7 @@ export const totalPriceTable = (err, data) => {
   totalPrice.textContent = `$${num}`;
 };
 
-tbody.addEventListener('click',async e => {
+tbody.addEventListener('click', async e => {
     const target = e.target;
 
     if (target.closest('.delite_product')) {
@@ -75,6 +92,10 @@ tableBtn.addEventListener('click', () => {
   table.style.display = 'none';
   createModal();
 });
+
+
+
+
 
 
 

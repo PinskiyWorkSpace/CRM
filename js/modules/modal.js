@@ -41,8 +41,17 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="category">Категория
-              <input class="form__input" type="text" name="category" value="${data.category}" required>
+              <input class="form__input" type="text" name="category" value="${data.category}" list="category-list" required>
             </label>
+
+            <datalist id="category-list">
+              <option value="Мобильные телефоны">
+              <option value="Игрушки">
+              <option value="ТВ приставка">
+              <option value="Кабеля">
+              <option value="Умный дом">
+              <option value="Тест">
+            </datalist>
 
             <label class="units">Единицы измерения
               <input class="form__input" type="text" name="units" value="${data.units}" required>
@@ -55,7 +64,7 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="description">Описание
-              <textarea class="form__textarea" name="description" cols="30" rows="3"  required>${data.description} minlength="80"</textarea>
+              <textarea class="form__textarea" name="description" cols="30" rows="3"  required>${data.description} </textarea>
             </label>
 
             <label class="count">Колличество
@@ -117,8 +126,17 @@ export const createModal = async (err, data) => {
             </label>
 
             <label class="category">Категория
-              <input class="form__input" type="text" name="category" required>
+              <input class="form__input" type="text" name="category" list="category-list" required>
             </label>
+
+            <datalist id="category-list">
+              <option value="Мобильные телефоны">
+              <option value="Игрушки">
+              <option value="ТВ приставка">
+              <option value="Кабеля">
+              <option value="Умный дом">
+              <option value="Тест">
+            </datalist>
 
             <label class="units">Единицы измерения
               <input class="form__input" type="text" name="units" required>
