@@ -2,6 +2,7 @@ import {closeModal} from './control.js';
 import {fetchRequest} from './request.js';
 import {totalPriceTable} from './control.js';
 import {createRow} from './createElements.js';
+import {renderGoods} from './render.js';
 
 
 export const modalControl = () => {
@@ -66,29 +67,59 @@ export const modalControl = () => {
     const newProduct = Object.fromEntries(formData);
     newProduct.image = await toBase64(newProduct.image);
 
-    await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
-      method: 'POST',
-      body: newProduct,
-      callBack(err, data) {
-        if (err) {
-          console.log('err: ', err);
-          modal.style.display = 'block';
-          form.reset();
 
-          modal.addEventListener('click', (e) => {
-            if (e.target === modalClose) {
-              modal.style.display = 'none';
+    const submit = document.querySelector('.form__btn');
+      if(submit.textContent === 'Изменить товар') {
+        const id = document.querySelector('.title--id');
+
+        await fetchRequest(`https://vast-boom-utensil.glitch.me/api/goods/${id.textContent}`, {
+          method: 'PATCH',
+          body: newProduct,
+          callBack(err, data) {
+            if (err) {
+              console.log('err: ', err);
+              modal.style.display = 'block';
+              form.reset();
+              return;
             }
-          });
 
-          return;
-        }
+            form.reset();
+            closeModal();
+            tbody.textContent = '';
+          },
+        });
 
-        tbody.append(createRow(data));
-        form.reset();
-        closeModal();
-      },
-    });
+        await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
+        method: 'GET',
+        callBack: renderGoods,
+      });
+
+      }else {
+        await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
+          method: 'POST',
+          body: newProduct,
+          callBack(err, data) {
+            if (err) {
+              console.log('err: ', err);
+              modal.style.display = 'block';
+              form.reset();
+
+              modal.addEventListener('click', (e) => {
+                if (e.target === modalClose) {
+                  modal.style.display = 'none';
+                }
+              });
+
+              return;
+            }
+
+            tbody.append(createRow(data));
+            form.reset();
+            closeModal();
+
+          },
+        });
+      }
 
     await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
       method: 'GET',

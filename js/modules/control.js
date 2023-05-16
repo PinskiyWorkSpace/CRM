@@ -75,11 +75,6 @@ tbody.addEventListener('click', async e => {
         callBack: createModal,
       });
     }
-
-    await fetchRequest(URL, {
-      method: 'GET',
-      callBack: totalPriceTable,
-    });
   });
 
 const getImage = () => {
