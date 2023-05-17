@@ -64,6 +64,11 @@ tbody.addEventListener('click', async e => {
       await fetchRequest(`${URL}${idProduct.dataset.id}`, {
         method: 'DELETE',
       });
+
+      await fetchRequest('https://vast-boom-utensil.glitch.me/api/goods', {
+      method: 'GET',
+      callBack: totalPriceTable,
+    });
     }
 
     if (target.closest('.edit_product')) {

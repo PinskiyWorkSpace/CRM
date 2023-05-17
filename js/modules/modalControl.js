@@ -67,7 +67,6 @@ export const modalControl = () => {
     const newProduct = Object.fromEntries(formData);
     newProduct.image = await toBase64(newProduct.image);
 
-
     const submit = document.querySelector('.form__btn');
       if(submit.textContent === 'Изменить товар') {
         const id = document.querySelector('.title--id');
@@ -130,8 +129,6 @@ export const modalControl = () => {
   file.addEventListener('change', () => {
     if (file.files.length > 0) {
       if (file.files[0].size < 1e6) {
-        console.log('1e6: ', 1e6);
-        console.log('file.files[0]: ', file.files[0]);
         const src = URL.createObjectURL(file.files[0]);
         preview.src = src;
       } else {
